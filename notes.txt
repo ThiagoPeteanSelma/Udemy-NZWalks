@@ -1,0 +1,17 @@
+//    new List<Region>
+//{
+//    new Region
+//    {
+//        Id = Guid.NewGuid(),
+//        Name = "Aucklan Region",
+//        Code = "AKL",
+//        RegionImageUrl="https://images.pexels.com/photos/5169056/pexels-photo-5169056.jpeg?auto=compress&cs=tinysrgb&w=1260&dpr=1"
+//    },
+//    new Region
+//    {
+//        Id = Guid.NewGuid(),
+//        Name = "Wellington Region",
+//        Code = "WLG",
+//        RegionImageUrl="https://images.pexels.com/photos/4350631/pexels-photo-4350631.jpeg?auto=compress&cs=tinysrgb&w=1260&dpr=1"
+//    }
+//};
