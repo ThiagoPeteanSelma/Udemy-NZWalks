@@ -45,36 +45,24 @@ namespace NZWalks.API.Repositories
     
             if(!string.IsNullOrWhiteSpace(filterOn) && !string.IsNullOrWhiteSpace(filterQuery)) 
             {
-                switch (filterOn.ToString().ToLower())
+                walks = filterOn.ToString().ToLower() switch
                 {
-                    case "name":
-                        walks = walks.Where(x=> x.Name == filterQuery);
-                        break;
-                    case "description":
-                        walks = walks.Where(x => x.Description == filterQuery);
-                        break;
-                    default:
-                        throw new ArgumentException("Filter not implemented");
-                }
+                    "name" => walks.Where(x => x.Name == filterQuery),
+                    "description" => walks.Where(x => x.Description == filterQuery),
+                    _ => throw new ArgumentException("Filter not implemented"),
+                };
             }
 
             // Sorting
             if (!string.IsNullOrWhiteSpace(sortBy))
             {
-                switch (sortBy.ToString().ToLower())
+                walks = sortBy.ToString().ToLower() switch
                 {
-                    case "name":
-                        walks = isAscending? walks.OrderBy(x=> x.Name) : walks.OrderByDescending(x => x.Name);
-                        break;
-                    case "description":
-                        walks = isAscending ? walks.OrderBy(x => x.Description) : walks.OrderByDescending(x => x.Description);
-                        break;
-                    case "length":
-                        walks = isAscending ? walks.OrderBy(x => x.LengthInKm) : walks.OrderByDescending(x => x.LengthInKm);
-                        break;
-                    default:
-                        throw new ArgumentException("Sort not implemented");
-                }
+                    "name" => isAscending ? walks.OrderBy(x => x.Name) : walks.OrderByDescending(x => x.Name),
+                    "description" => isAscending ? walks.OrderBy(x => x.Description) : walks.OrderByDescending(x => x.Description),
+                    "length" => isAscending ? walks.OrderBy(x => x.LengthInKm) : walks.OrderByDescending(x => x.LengthInKm),
+                    _ => throw new ArgumentException("Sort not implemented"),
+                };
             }
 
             // Pagination

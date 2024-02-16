@@ -42,7 +42,7 @@ namespace NZWalks.API.Controllers
             [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 1000)
         {
             // Get Data From Database - Domain models
-            var walkDomainModel = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, isAscending ?? true);
+            var walkDomainModel = await walkRepository.GetAllAsync(filterOn, filterQuery, sortBy, isAscending ?? true, pageNumber, pageSize);
 
             // Return DTOs
             return Ok(mapper.Map<List<WalkDTO>>(walkDomainModel));
