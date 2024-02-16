@@ -22,7 +22,7 @@ namespace NZWalks.API.Repositories
             return new List<Region> 
             {
 
-                new Region()
+                new()
                 {
                     Id = Guid.NewGuid(),
                     Code = "THI",

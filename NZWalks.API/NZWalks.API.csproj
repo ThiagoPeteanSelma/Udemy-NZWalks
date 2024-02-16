@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repositories\InMemoryRegionRepository.cs" />
+    <Compile Remove="Repositories\InMemoryWalkRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>
